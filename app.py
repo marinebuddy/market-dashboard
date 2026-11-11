@@ -2,6 +2,7 @@ import streamlit as st
 import yfinance as yf
 
 import fear_greed  # 같은 폴더의 fear_greed.py 파일을 불러옴
+import macro       # 같은 폴더의 macro.py 파일을 불러옴
 
 # 1) 페이지 기본 설정: 브라우저 탭 제목과 화면 너비
 SITE_TITLE = "동하아빠의 주식투자"
@@ -82,7 +83,12 @@ def show_indices():
 MENU = {
     "시장 지표": {
         "지수 흐름": show_indices,
+        "유가·환율": macro.show_oil_fx,
+        "미국 국채금리": macro.show_yields,
+    },
+    "심리 지표": {
         "미국 피어앤그리드": fear_greed.show,
+        "CNN 피어앤그리드": macro.show_cnn_fear_greed,
     },
 }
 
